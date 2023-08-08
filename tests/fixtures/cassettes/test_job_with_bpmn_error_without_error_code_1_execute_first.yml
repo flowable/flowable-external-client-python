@@ -1,0 +1,492 @@
+interactions:
+- request:
+    body: "--cdc375c4b34876b53143d4e7c5ead97a\r\nContent-Disposition: form-data; name=\"file\";
+      filename=\"withBoundaryEvent.bpmn\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<definitions
+      xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+      xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:flowable=\"http://flowable.org/bpmn\"
+      xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:omgdc=\"http://www.omg.org/spec/DD/20100524/DC\"
+      xmlns:omgdi=\"http://www.omg.org/spec/DD/20100524/DI\" xmlns:design=\"http://flowable.org/design\"
+      typeLanguage=\"http://www.w3.org/2001/XMLSchema\" expressionLanguage=\"http://www.w3.org/1999/XPath\"
+      targetNamespace=\"http://flowable.org/test\" design:palette=\"flowable-work-process-palette\">\n
+      \ <process id=\"externalWorkerProcess\" name=\"External Worker Process\" isExecutable=\"true\"
+      flowable:candidateStarterGroups=\"flowableUser\">\n    <extensionElements>\n
+      \     <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>\n      <design:creationdate><![CDATA[2023-08-08T10:37:00.833Z]]></design:creationdate>\n
+      \     <design:modificationdate><![CDATA[2023-08-09T09:21:14.780Z]]></design:modificationdate>\n
+      \   </extensionElements>\n    <serviceTask id=\"bpmnTask_3\" name=\"External
+      Worker task\" flowable:type=\"external-worker\" flowable:topic=\"myTopic\">\n
+      \     <extensionElements>\n        <design:stencilid><![CDATA[ExternalWorkerTask]]></design:stencilid>\n
+      \       <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>\n      </extensionElements>\n
+      \   </serviceTask>\n    <startEvent id=\"startnoneevent1\" flowable:initiator=\"initiator\"
+      flowable:formFieldValidation=\"false\">\n      <extensionElements>\n        <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>\n
+      \       <design:stencilid><![CDATA[StartNoneEvent]]></design:stencilid>\n      </extensionElements>\n
+      \   </startEvent>\n    <endEvent id=\"bpmnEndEvent_1\">\n      <extensionElements>\n
+      \       <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>\n      </extensionElements>\n
+      \   </endEvent>\n    <endEvent id=\"bpmnEndEvent_5\" name=\"Failed with\_errorCode1\">\n
+      \     <extensionElements>\n        <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>\n
+      \       <design:display_ref_in_diagram><![CDATA[true]]></design:display_ref_in_diagram>\n
+      \     </extensionElements>\n    </endEvent>\n    <endEvent id=\"bpmnEndEvent_7\"
+      name=\"Generic error code failure\">\n      <extensionElements>\n        <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>\n
+      \       <design:display_ref_in_diagram><![CDATA[true]]></design:display_ref_in_diagram>\n
+      \     </extensionElements>\n    </endEvent>\n    <boundaryEvent id=\"bpmnBoundaryEvent_3\"
+      attachedToRef=\"bpmnTask_3\">\n      <extensionElements>\n        <design:stencilid><![CDATA[IntermediateErrorEventBoundary]]></design:stencilid>\n
+      \     </extensionElements>\n      <errorEventDefinition errorRef=\"errorCode1\"></errorEventDefinition>\n
+      \   </boundaryEvent>\n    <sequenceFlow id=\"bpmnSequenceFlow_6\" sourceRef=\"bpmnBoundaryEvent_3\"
+      targetRef=\"bpmnEndEvent_5\">\n      <extensionElements>\n        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>\n
+      \     </extensionElements>\n    </sequenceFlow>\n    <boundaryEvent id=\"bpmnBoundaryEvent_4\"
+      attachedToRef=\"bpmnTask_3\">\n      <extensionElements>\n        <design:stencilid><![CDATA[IntermediateErrorEventBoundary]]></design:stencilid>\n
+      \     </extensionElements>\n      <errorEventDefinition></errorEventDefinition>\n
+      \   </boundaryEvent>\n    <sequenceFlow id=\"bpmnSequenceFlow_8\" sourceRef=\"bpmnBoundaryEvent_4\"
+      targetRef=\"bpmnEndEvent_7\">\n      <extensionElements>\n        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>\n
+      \     </extensionElements>\n    </sequenceFlow>\n    <sequenceFlow id=\"bpmnSequenceFlow_4\"
+      sourceRef=\"bpmnTask_3\" targetRef=\"bpmnEndEvent_1\">\n      <extensionElements>\n
+      \       <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>\n      </extensionElements>\n
+      \   </sequenceFlow>\n    <sequenceFlow id=\"bpmnSequenceFlow_2\" sourceRef=\"startnoneevent1\"
+      targetRef=\"bpmnTask_3\">\n      <extensionElements>\n        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>\n
+      \     </extensionElements>\n    </sequenceFlow>\n  </process>\n  <bpmndi:BPMNDiagram
+      id=\"BPMNDiagram_externalWorkerProcess\">\n    <bpmndi:BPMNPlane bpmnElement=\"externalWorkerProcess\"
+      id=\"BPMNPlane_externalWorkerProcess\">\n      <bpmndi:BPMNShape bpmnElement=\"bpmnTask_3\"
+      id=\"BPMNShape_bpmnTask_3\">\n        <omgdc:Bounds height=\"80.0\" width=\"100.0\"
+      x=\"451.0\" y=\"236.0\"></omgdc:Bounds>\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape
+      bpmnElement=\"startnoneevent1\" id=\"BPMNShape_startnoneevent1\">\n        <omgdc:Bounds
+      height=\"30.0\" width=\"30.0\" x=\"317.0\" y=\"261.0\"></omgdc:Bounds>\n      </bpmndi:BPMNShape>\n
+      \     <bpmndi:BPMNShape bpmnElement=\"bpmnEndEvent_1\" id=\"BPMNShape_bpmnEndEvent_1\">\n
+      \       <omgdc:Bounds height=\"28.0\" width=\"28.0\" x=\"700.0\" y=\"262.0\"></omgdc:Bounds>\n
+      \     </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape bpmnElement=\"bpmnEndEvent_5\"
+      id=\"BPMNShape_bpmnEndEvent_5\">\n        <omgdc:Bounds height=\"28.0\" width=\"28.0\"
+      x=\"609.0\" y=\"438.01705169677734\"></omgdc:Bounds>\n      </bpmndi:BPMNShape>\n
+      \     <bpmndi:BPMNShape bpmnElement=\"bpmnEndEvent_7\" id=\"BPMNShape_bpmnEndEvent_7\">\n
+      \       <omgdc:Bounds height=\"28.0\" width=\"28.0\" x=\"609.0\" y=\"365.01705169677734\"></omgdc:Bounds>\n
+      \     </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape bpmnElement=\"bpmnBoundaryEvent_3\"
+      id=\"BPMNShape_bpmnBoundaryEvent_3\">\n        <omgdc:Bounds height=\"30.0\"
+      width=\"30.0\" x=\"469.0\" y=\"301.0\"></omgdc:Bounds>\n      </bpmndi:BPMNShape>\n
+      \     <bpmndi:BPMNShape bpmnElement=\"bpmnBoundaryEvent_4\" id=\"BPMNShape_bpmnBoundaryEvent_4\">\n
+      \       <omgdc:Bounds height=\"30.0\" width=\"30.0\" x=\"504.0\" y=\"301.0\"></omgdc:Bounds>\n
+      \     </bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge bpmnElement=\"bpmnSequenceFlow_4\"
+      id=\"BPMNEdge_bpmnSequenceFlow_4\" flowable:sourceDockerX=\"50.0\" flowable:sourceDockerY=\"40.0\"
+      flowable:targetDockerX=\"14.0\" flowable:targetDockerY=\"14.0\">\n        <omgdi:waypoint
+      x=\"551.0\" y=\"276.0\"></omgdi:waypoint>\n        <omgdi:waypoint x=\"700.0\"
+      y=\"276.0\"></omgdi:waypoint>\n      </bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge
+      bpmnElement=\"bpmnSequenceFlow_2\" id=\"BPMNEdge_bpmnSequenceFlow_2\" flowable:sourceDockerX=\"15.0\"
+      flowable:sourceDockerY=\"15.0\" flowable:targetDockerX=\"50.0\" flowable:targetDockerY=\"40.0\">\n
+      \       <omgdi:waypoint x=\"347.0\" y=\"276.0\"></omgdi:waypoint>\n        <omgdi:waypoint
+      x=\"451.0\" y=\"276.0\"></omgdi:waypoint>\n      </bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge
+      bpmnElement=\"bpmnSequenceFlow_8\" id=\"BPMNEdge_bpmnSequenceFlow_8\" flowable:sourceDockerX=\"15.0\"
+      flowable:sourceDockerY=\"15.0\" flowable:targetDockerX=\"14.0\" flowable:targetDockerY=\"14.0\">\n
+      \       <omgdi:waypoint x=\"519.0\" y=\"331.0\"></omgdi:waypoint>\n        <omgdi:waypoint
+      x=\"519.0\" y=\"379.01705169677734\"></omgdi:waypoint>\n        <omgdi:waypoint
+      x=\"609.0\" y=\"379.01705169677734\"></omgdi:waypoint>\n      </bpmndi:BPMNEdge>\n
+      \     <bpmndi:BPMNEdge bpmnElement=\"bpmnSequenceFlow_6\" id=\"BPMNEdge_bpmnSequenceFlow_6\"
+      flowable:sourceDockerX=\"15.0\" flowable:sourceDockerY=\"15.0\" flowable:targetDockerX=\"14.0\"
+      flowable:targetDockerY=\"14.0\">\n        <omgdi:waypoint x=\"484.0\" y=\"331.0\"></omgdi:waypoint>\n
+      \       <omgdi:waypoint x=\"484.0\" y=\"452.01705169677734\"></omgdi:waypoint>\n
+      \       <omgdi:waypoint x=\"609.0\" y=\"452.01705169677734\"></omgdi:waypoint>\n
+      \     </bpmndi:BPMNEdge>\n    </bpmndi:BPMNPlane>\n  </bpmndi:BPMNDiagram>\n</definitions>\r\n--cdc375c4b34876b53143d4e7c5ead97a--\r\n"
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '7489'
+      Content-Type:
+      - multipart/form-data; boundary=cdc375c4b34876b53143d4e7c5ead97a
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/process-api/repository/deployments
+  response:
+    body:
+      string: '{"id":"PRC-bc636cb3-369a-11ee-a638-0242c0a8f005","name":"withBoundaryEvent","deploymentTime":"2023-08-09T09:54:30.856Z","category":null,"parentDeploymentId":"PRC-bc636cb3-369a-11ee-a638-0242c0a8f005","url":"http://localhost:8090/process-api/repository/deployments/PRC-bc636cb3-369a-11ee-a638-0242c0a8f005","tenantId":""}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=c1aef740-cd62-4fa7-9d78-39aa7db2a1e4; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '320'
+      vary:
+      - accept-encoding
+    status:
+      code: 201
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: http://localhost:8090/process-api/repository/process-definitions?deploymentId=PRC-bc636cb3-369a-11ee-a638-0242c0a8f005
+  response:
+    body:
+      string: '{"data":[{"id":"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005","url":"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005","key":"externalWorkerProcess","version":21,"name":"External
+        Worker Process","description":null,"tenantId":"","deploymentId":"PRC-bc636cb3-369a-11ee-a638-0242c0a8f005","deploymentUrl":"http://localhost:8090/process-api/repository/deployments/PRC-bc636cb3-369a-11ee-a638-0242c0a8f005","resource":"http://localhost:8090/process-api/repository/deployments/PRC-bc636cb3-369a-11ee-a638-0242c0a8f005/resources/withBoundaryEvent.bpmn","diagramResource":null,"category":"http://flowable.org/test","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false}],"total":1,"start":0,"sort":"name","order":"asc","size":1}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=ea48774b-ed25-4fff-9ba6-d4efd7628168; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '794'
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: ''
+- request:
+    body: '{"processDefinitionId": "PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '67'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/process-api/runtime/process-instances
+  response:
+    body:
+      string: '{"id":"PRC-bc983857-369a-11ee-a638-0242c0a8f005","url":"http://localhost:8090/process-api/runtime/process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005","name":null,"businessKey":null,"businessStatus":null,"suspended":false,"ended":false,"processDefinitionId":"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005","processDefinitionUrl":"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005","processDefinitionName":"External
+        Worker Process","processDefinitionDescription":null,"activityId":null,"startUserId":"admin","startTime":"2023-08-09T09:54:31.202Z","superProcessInstanceId":null,"variables":[{"name":"initiator","type":"string","value":"admin","scope":"local"}],"callbackId":null,"callbackType":null,"referenceId":null,"referenceType":null,"propagatedStageInstanceId":null,"tenantId":"","completed":false}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=440e3ab2-fe0b-433f-bedc-e7b1f5d22d22; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '860'
+      vary:
+      - accept-encoding
+    status:
+      code: 201
+      message: ''
+- request:
+    body: '{"topic": "myTopic", "lockDuration": "PT10S", "numberOfTasks": 1, "numberOfRetries":
+      5, "workerId": "test-worker", "scopeType": null}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '133'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/external-job-api/acquire/jobs
+  response:
+    body:
+      string: '[{"id":"JOB-bc98ad95-369a-11ee-a638-0242c0a8f005","url":"http://localhost:8090/external-job-api/jobs/JOB-bc98ad95-369a-11ee-a638-0242c0a8f005","correlationId":"bc98ad94-369a-11ee-a638-0242c0a8f005","processInstanceId":"PRC-bc983857-369a-11ee-a638-0242c0a8f005","processDefinitionId":"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005","executionId":"PRC-bc985f6a-369a-11ee-a638-0242c0a8f005","scopeId":null,"subScopeId":null,"scopeDefinitionId":null,"scopeType":null,"elementId":"bpmnTask_3","elementName":"External
+        Worker task","retries":3,"exceptionMessage":null,"dueDate":null,"createTime":"2023-08-09T09:54:31.205Z","tenantId":"","lockOwner":"test-worker","lockExpirationTime":"2023-08-09T09:54:41.339Z","variables":[{"name":"initiator","type":"string","value":"admin"}]}]'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=414f3004-ce71-4821-a3ae-1f059da7c925; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '767'
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: ''
+- request:
+    body: '{"workerId": "test-worker", "variables": [{"name": "testVar", "type": "string",
+      "value": "test failure", "valueUrl": null}], "errorCode": "errorCode1"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '151'
+      Content-Type:
+      - application/json
+      Cookie:
+      - XSRF-TOKEN=414f3004-ce71-4821-a3ae-1f059da7c925
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/external-job-api/acquire/jobs/JOB-bc98ad95-369a-11ee-a638-0242c0a8f005/bpmnError
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: http://localhost:8090/process-api/history/historic-variable-instances?processInstanceId=PRC-bc983857-369a-11ee-a638-0242c0a8f005&variableName=testVar
+  response:
+    body:
+      string: '{"data":[{"id":"VAR-bcbd9ab9-369a-11ee-a638-0242c0a8f005","processInstanceId":"PRC-bc983857-369a-11ee-a638-0242c0a8f005","processInstanceUrl":"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005","taskId":null,"executionId":"PRC-bc983857-369a-11ee-a638-0242c0a8f005","variable":{"name":"testVar","type":"string","value":"test
+        failure","scope":"global"}}],"total":1,"start":0,"sort":"variableName","order":"asc","size":1}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=6b438727-485c-44ac-b981-aa567af68fa7; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '478'
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: http://localhost:8090/process-api/history/historic-activity-instances?processInstanceId=PRC-bc983857-369a-11ee-a638-0242c0a8f005
+  response:
+    body:
+      string: "{\"data\":[{\"id\":\"PRC-bc985f6b-369a-11ee-a638-0242c0a8f005\",\"activityId\":\"startnoneevent1\",\"activityName\":null,\"activityType\":\"startEvent\",\"processDefinitionId\":\"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processDefinitionUrl\":\"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processInstanceId\":\"PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"processInstanceUrl\":\"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"executionId\":\"PRC-bc985f6a-369a-11ee-a638-0242c0a8f005\",\"taskId\":null,\"calledProcessInstanceId\":null,\"assignee\":null,\"startTime\":\"2023-08-09T09:54:31.203Z\",\"endTime\":\"2023-08-09T09:54:31.204Z\",\"durationInMillis\":1,\"tenantId\":\"\"},{\"id\":\"PRC-bc98867e-369a-11ee-a638-0242c0a8f005\",\"activityId\":\"bpmnSequenceFlow_2\",\"activityName\":null,\"activityType\":\"sequenceFlow\",\"processDefinitionId\":\"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processDefinitionUrl\":\"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processInstanceId\":\"PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"processInstanceUrl\":\"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"executionId\":\"PRC-bc985f6a-369a-11ee-a638-0242c0a8f005\",\"taskId\":null,\"calledProcessInstanceId\":null,\"assignee\":null,\"startTime\":\"2023-08-09T09:54:31.204Z\",\"endTime\":\"2023-08-09T09:54:31.204Z\",\"durationInMillis\":0,\"tenantId\":\"\"},{\"id\":\"PRC-bc988681-369a-11ee-a638-0242c0a8f005\",\"activityId\":\"bpmnBoundaryEvent_3\",\"activityName\":null,\"activityType\":\"boundaryEvent\",\"processDefinitionId\":\"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processDefinitionUrl\":\"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processInstanceId\":\"PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"processInstanceUrl\":\"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"executionId\":\"PRC-bc988680-369a-11ee-a638-0242c0a8f005\",\"taskId\":null,\"calledProcessInstanceId\":null,\"assignee\":null,\"startTime\":\"2023-08-09T09:54:31.204Z\",\"endTime\":\"2023-08-09T09:54:31.454Z\",\"durationInMillis\":250,\"tenantId\":\"\"},{\"id\":\"PRC-bc98867f-369a-11ee-a638-0242c0a8f005\",\"activityId\":\"bpmnTask_3\",\"activityName\":\"External
+        Worker task\",\"activityType\":\"externalWorkerServiceTask\",\"processDefinitionId\":\"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processDefinitionUrl\":\"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processInstanceId\":\"PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"processInstanceUrl\":\"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"executionId\":\"PRC-bc985f6a-369a-11ee-a638-0242c0a8f005\",\"taskId\":null,\"calledProcessInstanceId\":null,\"assignee\":null,\"startTime\":\"2023-08-09T09:54:31.204Z\",\"endTime\":\"2023-08-09T09:54:31.452Z\",\"durationInMillis\":248,\"tenantId\":\"\"},{\"id\":\"PRC-bc98ad93-369a-11ee-a638-0242c0a8f005\",\"activityId\":\"bpmnBoundaryEvent_4\",\"activityName\":null,\"activityType\":\"boundaryEvent\",\"processDefinitionId\":\"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processDefinitionUrl\":\"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processInstanceId\":\"PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"processInstanceUrl\":\"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"executionId\":\"PRC-bc98ad92-369a-11ee-a638-0242c0a8f005\",\"taskId\":null,\"calledProcessInstanceId\":null,\"assignee\":null,\"startTime\":\"2023-08-09T09:54:31.205Z\",\"endTime\":\"2023-08-09T09:54:31.451Z\",\"durationInMillis\":246,\"tenantId\":\"\"},{\"id\":\"PRC-bcbed33a-369a-11ee-a638-0242c0a8f005\",\"activityId\":\"bpmnSequenceFlow_6\",\"activityName\":null,\"activityType\":\"sequenceFlow\",\"processDefinitionId\":\"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processDefinitionUrl\":\"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processInstanceId\":\"PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"processInstanceUrl\":\"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"executionId\":\"PRC-bc988680-369a-11ee-a638-0242c0a8f005\",\"taskId\":null,\"calledProcessInstanceId\":null,\"assignee\":null,\"startTime\":\"2023-08-09T09:54:31.455Z\",\"endTime\":\"2023-08-09T09:54:31.455Z\",\"durationInMillis\":0,\"tenantId\":\"\"},{\"id\":\"PRC-bcbefa4b-369a-11ee-a638-0242c0a8f005\",\"activityId\":\"bpmnEndEvent_5\",\"activityName\":\"Failed
+        with\_errorCode1\",\"activityType\":\"endEvent\",\"processDefinitionId\":\"PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processDefinitionUrl\":\"http://localhost:8090/process-api/repository/process-definitions/PRC-bc6dccf5-369a-11ee-a638-0242c0a8f005\",\"processInstanceId\":\"PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"processInstanceUrl\":\"http://localhost:8090/process-api/history/historic-process-instances/PRC-bc983857-369a-11ee-a638-0242c0a8f005\",\"executionId\":\"PRC-bc988680-369a-11ee-a638-0242c0a8f005\",\"taskId\":null,\"calledProcessInstanceId\":null,\"assignee\":null,\"startTime\":\"2023-08-09T09:54:31.456Z\",\"endTime\":\"2023-08-09T09:54:31.456Z\",\"durationInMillis\":0,\"tenantId\":\"\"}],\"total\":7,\"start\":0,\"sort\":\"startTime\",\"order\":\"asc\",\"size\":7}"
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=f803cfd7-5757-4bf7-8673-78df94b362f6; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '5398'
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.31.0
+    method: DELETE
+    uri: http://localhost:8090/process-api/repository/deployments/PRC-bc636cb3-369a-11ee-a638-0242c0a8f005
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 09 Aug 2023 09:54:30 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=cd4c8003-ddeb-4ea6-8b55-8f2d407f7e1e; Path=/
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: ''
+version: 1

@@ -1,0 +1,385 @@
+interactions:
+- request:
+    body: "--be9540ba375b51b2324ab80adc13c475\r\nContent-Disposition: form-data; name=\"file\";
+      filename=\"externalWorkerCase.cmmn\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<definitions
+      xmlns=\"http://www.omg.org/spec/CMMN/20151109/MODEL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+      xmlns:flowable=\"http://flowable.org/cmmn\" xmlns:cmmndi=\"http://www.omg.org/spec/CMMN/20151109/CMMNDI\"
+      xmlns:dc=\"http://www.omg.org/spec/CMMN/20151109/DC\" xmlns:di=\"http://www.omg.org/spec/CMMN/20151109/DI\"
+      xmlns:design=\"http://flowable.org/design\" targetNamespace=\"http://flowable.org/cmmn\"
+      design:palette=\"flowable-work-case-palette\">\n  <case id=\"externalWorkerCase\"
+      name=\"External Worker Case\" flowable:initiatorVariableName=\"initiator\" flowable:candidateStarterGroups=\"flowableUser\">\n
+      \   <casePlanModel id=\"onecaseplanmodel1\" name=\"Case plan model\" flowable:formFieldValidation=\"false\">\n
+      \     <extensionElements>\n        <flowable:default-menu-navigation-size><![CDATA[expanded]]></flowable:default-menu-navigation-size>\n
+      \       <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>\n
+      \       <design:stencilid><![CDATA[CasePlanModel]]></design:stencilid>\n      </extensionElements>\n
+      \     <planItem id=\"planItemcmmnTask_1\" name=\"External Worker task\" definitionRef=\"cmmnTask_1\"></planItem>\n
+      \     <task id=\"cmmnTask_1\" name=\"External Worker task\" flowable:type=\"external-worker\"
+      flowable:exclusive=\"false\" flowable:topic=\"cmmnTopic\">\n        <extensionElements>\n
+      \         <design:stencilid><![CDATA[ExternalWorkerTask]]></design:stencilid>\n
+      \         <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>\n
+      \       </extensionElements>\n      </task>\n    </casePlanModel>\n  </case>\n
+      \ <cmmndi:CMMNDI>\n    <cmmndi:CMMNDiagram id=\"CMMNDiagram_externalWorkerCase\">\n
+      \     <cmmndi:CMMNShape id=\"CMMNShape_onecaseplanmodel1\" cmmnElementRef=\"onecaseplanmodel1\">\n
+      \       <dc:Bounds height=\"679.0\" width=\"830.0\" x=\"270.0\" y=\"120.0\"></dc:Bounds>\n
+      \       <cmmndi:CMMNLabel></cmmndi:CMMNLabel>\n      </cmmndi:CMMNShape>\n      <cmmndi:CMMNShape
+      id=\"CMMNShape_planItemcmmnTask_1\" cmmnElementRef=\"planItemcmmnTask_1\">\n
+      \       <dc:Bounds height=\"80.0\" width=\"100.0\" x=\"453.0\" y=\"271.01705169677734\"></dc:Bounds>\n
+      \       <cmmndi:CMMNLabel></cmmndi:CMMNLabel>\n      </cmmndi:CMMNShape>\n    </cmmndi:CMMNDiagram>\n
+      \ </cmmndi:CMMNDI>\n</definitions>\r\n--be9540ba375b51b2324ab80adc13c475--\r\n"
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2388'
+      Content-Type:
+      - multipart/form-data; boundary=be9540ba375b51b2324ab80adc13c475
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/cmmn-api/cmmn-repository/deployments
+  response:
+    body:
+      string: '{"id":"CAS-620ab8e6-36be-11ee-a638-0242c0a8f005","name":"externalWorkerCase","deploymentTime":"2023-08-09T14:09:41.162Z","category":null,"parentDeploymentId":"CAS-620ab8e6-36be-11ee-a638-0242c0a8f005","url":"http://localhost:8090/cmmn-api/cmmn-repository/deployments/CAS-620ab8e6-36be-11ee-a638-0242c0a8f005","tenantId":""}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 14:09:41 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=551d42fa-116c-4ff5-a0a6-0f74b1a528ff; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '323'
+      vary:
+      - accept-encoding
+    status:
+      code: 201
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: http://localhost:8090/cmmn-api/cmmn-repository/case-definitions?deploymentId=CAS-620ab8e6-36be-11ee-a638-0242c0a8f005
+  response:
+    body:
+      string: '{"data":[{"id":"CAS-620c1878-36be-11ee-a638-0242c0a8f005","url":"http://localhost:8090/cmmn-api/cmmn-repository/case-definitions/CAS-620c1878-36be-11ee-a638-0242c0a8f005","key":"externalWorkerCase","version":11,"name":"External
+        Worker Case","description":null,"tenantId":"","deploymentId":"CAS-620ab8e6-36be-11ee-a638-0242c0a8f005","deploymentUrl":"http://localhost:8090/cmmn-api/cmmn-repository/deployments/CAS-620ab8e6-36be-11ee-a638-0242c0a8f005","resource":"http://localhost:8090/cmmn-api/cmmn-repository/deployments/CAS-620ab8e6-36be-11ee-a638-0242c0a8f005/resources/externalWorkerCase.cmmn","diagramResource":null,"category":"http://flowable.org/cmmn","graphicalNotationDefined":true,"startFormDefined":false}],"total":1,"start":0,"sort":"name","order":"asc","size":1}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 14:09:41 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=3ad94b54-76b7-4136-a484-461832a116b6; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '774'
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: ''
+- request:
+    body: '{"caseDefinitionId": "CAS-620c1878-36be-11ee-a638-0242c0a8f005"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '64'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/cmmn-api/cmmn-runtime/case-instances
+  response:
+    body:
+      string: '{"id":"CAS-62301b3a-36be-11ee-a638-0242c0a8f005","name":null,"url":"http://localhost:8090/cmmn-api/cmmn-runtime/case-instances/CAS-62301b3a-36be-11ee-a638-0242c0a8f005","businessKey":null,"businessStatus":null,"startTime":"2023-08-09T14:09:41.407Z","startUserId":"admin","state":"active","ended":false,"caseDefinitionId":"CAS-620c1878-36be-11ee-a638-0242c0a8f005","caseDefinitionUrl":"http://localhost:8090/cmmn-api/cmmn-repository/case-definitions/CAS-620c1878-36be-11ee-a638-0242c0a8f005","caseDefinitionName":"External
+        Worker Case","caseDefinitionDescription":null,"parentId":null,"callbackId":null,"callbackType":null,"referenceId":null,"referenceType":null,"variables":[{"name":"initiator","type":"string","value":"admin","scope":"local"}],"tenantId":"","completed":false}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 14:09:41 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=e1beda9a-3f2d-498b-a211-bf57c246520d; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '777'
+      vary:
+      - accept-encoding
+    status:
+      code: 201
+      message: ''
+- request:
+    body: '{"topic": "cmmnTopic", "lockDuration": "PT10S", "numberOfTasks": 1, "numberOfRetries":
+      5, "workerId": "test-worker", "scopeType": null}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '135'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/external-job-api/acquire/jobs
+  response:
+    body:
+      string: '[{"id":"JOB-62306961-36be-11ee-a638-0242c0a8f005","url":"http://localhost:8090/external-job-api/jobs/JOB-62306961-36be-11ee-a638-0242c0a8f005","correlationId":"62306960-36be-11ee-a638-0242c0a8f005","processInstanceId":null,"processDefinitionId":null,"executionId":null,"scopeId":"CAS-62301b3a-36be-11ee-a638-0242c0a8f005","subScopeId":"CAS-6230695f-36be-11ee-a638-0242c0a8f005","scopeDefinitionId":"CAS-620c1878-36be-11ee-a638-0242c0a8f005","scopeType":"cmmn","elementId":"cmmnTask_1","elementName":"External
+        Worker task","retries":3,"exceptionMessage":null,"dueDate":null,"createTime":"2023-08-09T14:09:41.409Z","tenantId":"","lockOwner":"test-worker","lockExpirationTime":"2023-08-09T14:09:51.536Z","variables":[{"name":"initiator","type":"string","value":"admin"}]}]'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 14:09:41 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=569cdb08-484a-472c-b84c-2b52b8f5cf81; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '769'
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: ''
+- request:
+    body: '{"workerId": "test-worker", "variables": [{"name": "testVar", "type": "string",
+      "value": "test terminate", "valueUrl": null}]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      Cookie:
+      - XSRF-TOKEN=569cdb08-484a-472c-b84c-2b52b8f5cf81
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: http://localhost:8090/external-job-api/acquire/jobs/JOB-62306961-36be-11ee-a638-0242c0a8f005/cmmnTerminate
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 09 Aug 2023 14:09:41 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: http://localhost:8090/cmmn-api/cmmn-history/historic-variable-instances?caseInstanceId=CAS-62301b3a-36be-11ee-a638-0242c0a8f005&variableName=testVar
+  response:
+    body:
+      string: '{"data":[{"id":"VAR-6255a4a5-36be-11ee-a638-0242c0a8f005","caseInstanceId":"CAS-62301b3a-36be-11ee-a638-0242c0a8f005","caseInstanceUrl":"http://localhost:8090/cmmn-api/cmmn-history/historic-case-instances/CAS-62301b3a-36be-11ee-a638-0242c0a8f005","taskId":null,"planItemInstanceId":null,"variable":{"name":"testVar","type":"string","value":"test
+        terminate","scope":"global"}}],"total":1,"start":0,"sort":"variableName","order":"asc","size":1}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 09 Aug 2023 14:09:41 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=25ce99b5-ea00-40d3-b084-1360e58fc26a; Path=/
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '442'
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.31.0
+    method: DELETE
+    uri: http://localhost:8090/cmmn-api/cmmn-repository/deployments/CAS-620ab8e6-36be-11ee-a638-0242c0a8f005
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 09 Aug 2023 14:09:41 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=b62d9d4f-ec52-458e-886b-dccdc9721c67; Path=/
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 204
+      message: ''
+version: 1
