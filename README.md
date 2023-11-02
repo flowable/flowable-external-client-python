@@ -4,7 +4,7 @@
 [License:
 ![license](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/flowable/flowable-external-client-python/blob/main/LICENSE)
 
-![Flowable Actions CI](https://github.com/flowable/flowable-external-client-python/workflows/External%20Worker%20Build%20and%20Test/badge.svg?branch=main)
+![Flowable Actions CI](https://github.com/flowable/flowable-external-client-python/actions/workflows/main.yml/badge.svg?branch=main)
 
 An _External Worker Task_ in BPMN or CMMN is a task where the custom logic of that task is executed externally to Flowable, i.e. on another server.
 When the process or case engine arrives at such a task, it will create an **external job**, which is exposed over the REST API.
