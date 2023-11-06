@@ -1,8 +1,8 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='flowableexternalworker',
-    packages=find_packages(include=['flowableexternalworker']),
+    name='flowable.external-worker-client',
+    packages=find_packages(include=['flowable.external-worker-client']),
     version='0.0.2',
     description='Flowable External Worker Library to connect Python code to Flowable using an external worker.',
     author='Flowable',
