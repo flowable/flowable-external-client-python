@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name='flowable.external-worker-client',
     packages=find_packages(include=['flowable.external-worker-client']),
-    version='0.0.2',
+    version='1.0.dev1',
     description='Flowable External Worker Library to connect Python code to Flowable using an external worker.',
     author='Flowable',
     license='',
