@@ -1,7 +1,7 @@
 import time
 from datetime import timedelta
 
-from flowableexternalworker import ExternalWorkerClient, WorkerResultBuilder, ExternalWorkerAcquireJobResponse, CallbackHandlerType
+from flowable.external_worker_client import ExternalWorkerClient, WorkerResultBuilder, ExternalWorkerAcquireJobResponse, CallbackHandlerType
 from tests.basic_test import BasicTest, base_url, auth
 from tests.bpmn_utils import start_process, executed_activity_ids, terminate_process, get_process_variable
 from tests.cmmn_utils import start_case, get_case_variable

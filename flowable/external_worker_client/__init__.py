@@ -7,10 +7,10 @@ from typing import Callable, Union
 from requests import Session
 from requests.auth import AuthBase
 
-from flowableexternalworker.engine_rest_variable import EngineRestVariable
-from flowableexternalworker.external_worker_acquire_job_response import ExternalWorkerAcquireJobResponse
-from flowableexternalworker.restclient import FlowableExternalWorkerRestClient
-from flowableexternalworker.worker_result import WorkerResultSuccess, WorkerResultFailure, WorkerResultBpmnError, WorkerResultCmmnTerminate, WorkResult
+from flowable.external_worker_client.engine_rest_variable import EngineRestVariable
+from flowable.external_worker_client.external_worker_acquire_job_response import ExternalWorkerAcquireJobResponse
+from flowable.external_worker_client.restclient import FlowableExternalWorkerRestClient
+from flowable.external_worker_client.worker_result import WorkerResultSuccess, WorkerResultFailure, WorkerResultBpmnError, WorkerResultCmmnTerminate, WorkResult
 
 
 class WorkerResultBuilder(object):

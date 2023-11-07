@@ -29,8 +29,8 @@ The usage with Flowable Cloud is simpler, since everything is pre-configured.
 However, it's required to either use the user credentials or to pre-configure a personal access token.
 
 ```python
-from flowableexternalworker import ExternalWorkerClient
-from flowableexternalworker.cloud_token import FlowableCloudToken
+from flowable.external_worker_client import ExternalWorkerClient
+from flowable.external_worker_client.cloud_token import FlowableCloudToken
 
 client = ExternalWorkerClient(auth=FlowableCloudToken("<personal-access-token>"))
 
@@ -46,7 +46,7 @@ subscription = client.subscribe('myTopic', my_callback)
 The following is an example how you can connect to a Flowable instance running at `http://host.docker.internal:8090` and process all messages retrieved on the topic `myTopic`:
 
 ```python
-from flowableexternalworker import ExternalWorkerClient
+from flowable.external_worker_client import ExternalWorkerClient
 from requests.auth import HTTPBasicAuth
 
 client = ExternalWorkerClient('http://localhost:8090/flowable-work', auth=HTTPBasicAuth("admin", "test"))

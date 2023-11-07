@@ -1,7 +1,8 @@
-name: Publish Package to PyPi
+name: Publish Package to Test PyPi
+
 on:
   release:
-    types: [published]
+    types: [released]
 
 jobs:
   build:
@@ -26,5 +27,6 @@ jobs:
       - name: Publish package distributions to Test PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
+          repository-url: https://test.pypi.org/legacy/
           packages-dir: dist/
           verbose: true

@@ -1,5 +1,5 @@
-from flowableexternalworker.engine_rest_variable import EngineRestVariable
-from flowableexternalworker.external_worker_job_response import ExternalWorkerJobResponse
+from flowable.external_worker_client.engine_rest_variable import EngineRestVariable
+from flowable.external_worker_client.external_worker_job_response import ExternalWorkerJobResponse
 
 
 class ExternalWorkerAcquireJobResponse(ExternalWorkerJobResponse):

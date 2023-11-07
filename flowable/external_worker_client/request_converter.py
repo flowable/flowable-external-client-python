@@ -1,4 +1,4 @@
-from flowableexternalworker.engine_rest_variable import EngineRestVariable
+from flowable.external_worker_client.engine_rest_variable import EngineRestVariable
 
 
 def convert_from_engine_rest_variable(o: EngineRestVariable) -> object:

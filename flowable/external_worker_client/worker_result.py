@@ -1,8 +1,8 @@
 from __future__ import annotations
 from abc import abstractmethod
 
-from flowableexternalworker import ExternalWorkerAcquireJobResponse, EngineRestVariable
-from flowableexternalworker.restclient import FlowableExternalWorkerRestClient
+from flowable.external_worker_client import ExternalWorkerAcquireJobResponse, EngineRestVariable
+from flowable.external_worker_client.restclient import FlowableExternalWorkerRestClient
 
 
 class WorkResult(object):

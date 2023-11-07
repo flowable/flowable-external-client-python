@@ -5,8 +5,8 @@ from pathlib import Path
 from requests import Session
 from requests.auth import HTTPBasicAuth
 
-from flowableexternalworker import restclient
-from flowableexternalworker.engine_rest_variable import EngineRestVariable
+from flowable.external_worker_client import restclient
+from flowable.external_worker_client.engine_rest_variable import EngineRestVariable
 from tests.basic_test import base_url, auth, BasicTest
 from tests.bpmn_utils import deploy_process, delete_deployment, start_process, terminate_process, get_process_definition_id, get_process_variable, \
     executed_activity_ids
