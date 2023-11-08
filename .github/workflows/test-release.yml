@@ -1,8 +1,9 @@
 name: Publish Package to Test PyPi
 
 on:
-  release:
-    types: [released]
+  create:
+    tags:
+      - v*
 
 jobs:
   build:
