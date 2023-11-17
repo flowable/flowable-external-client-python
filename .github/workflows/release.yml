@@ -23,7 +23,7 @@ jobs:
       - run: pip install setuptools
       - run: python setup.py sdist
       - run: pip wheel --no-deps . -w dist
-      - name: Publish package distributions to Test PyPI
+      - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/
