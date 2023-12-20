@@ -21,6 +21,14 @@ The `ExternalWorkerClient` accepts as a parameter `auth` an implementation of `r
 There are default implementations for example for basic authentication e.g. `HTTPBasicAuth("admin", "test")`.
 Flowable offers a bearer token implementation `FlowableCloudToken` which allows to specify an access token to the Flowable Cloud offering.
 
+## Installation
+
+To install the external worker library, execute the following command:
+
+```
+pip install flowable.external-worker-client
+```
+
 ## Sample
 
 ### Cloud
