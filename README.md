@@ -51,7 +51,7 @@ subscription = client.subscribe('myTopic', my_callback)
 
 ### Local
 
-The following is an example how you can connect to a Flowable instance running at `http://host.docker.internal:8090` and process all messages retrieved on the topic `myTopic`:
+The following is an example how you can connect to a Flowable instance running at `http://localhost:8090` and process all messages retrieved on the topic `myTopic`:
 
 ```python
 from flowable.external_worker_client import ExternalWorkerClient
