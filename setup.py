@@ -17,6 +17,8 @@ setup(
     license='',
     install_requires=['requests>=2.27.0', 'robocorp-actions>=0.2.1', 'robocorp-tasks>=3.1.1', 'robocorp-truststore>=0.9.1'],
     setup_requires=['pytest-runner'],
-    tests_require=['pytest', 'vcrpy'],
+    extras_require={
+        'testing': ['pytest', 'vcrpy']
+    },
     test_suite='tests',
 )
