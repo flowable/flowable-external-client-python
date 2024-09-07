@@ -14,11 +14,9 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Flowable',
-    license='',
+    license='Apache License, Version 2.0',
     install_requires=['requests>=2.27.0', 'robocorp-actions>=0.2.1', 'robocorp-tasks>=3.1.1', 'robocorp-truststore>=0.9.1'],
-    setup_requires=['pytest-runner'],
     extras_require={
         'testing': ['pytest', 'vcrpy']
     },
-    test_suite='tests',
 )

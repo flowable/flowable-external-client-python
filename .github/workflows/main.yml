@@ -22,4 +22,5 @@ jobs:
       - run: virtualenv venv
       - run: source venv/bin/activate
       - run: pip install setuptools
-      - run: python setup.py pytest
+      - run: pip install -e ".[testing]"
+      - run: python -m unittest discover
