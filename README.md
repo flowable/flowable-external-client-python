@@ -1,6 +1,5 @@
 # Flowable External Worker Library for Python
 
-
 [License:
 ![license](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/flowable/flowable-external-client-python/blob/main/LICENSE)
 
