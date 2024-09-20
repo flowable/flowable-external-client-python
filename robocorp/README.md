@@ -12,6 +12,14 @@ When using the Robocorp task in Flowable, it is possible to specify a task/actio
 In the task, the specific task/action specified will be executed and the result (only for actions) will be sent back to the process.
 It is required that the variables in the diagram match exactly the variables inside the robocorp task/action.
 
+## Installation
+
+To install the Flowable Robocorp client, execute the following command:
+
+```
+pip install flowable.robocorp-client
+```
+
 ## Sample
 
 The following [diagram BPMN](docs/robocorpExample.bpmn) illustrates a basic usage of the Robocorp task:
