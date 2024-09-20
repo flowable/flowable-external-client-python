@@ -47,5 +47,6 @@ jobs:
         working-directory: ./external-worker/
       - run: pip install -e ".[testing]"
         working-directory: ./robocorp/
+      - run: cp -a external-worker/flowable/external_worker_client robocorp/flowable/ # we need to copy this module over, since it's only searching locally for modules
       - run: python -m unittest discover
         working-directory: ./robocorp/

@@ -17,6 +17,6 @@ setup(
     license='Apache License, Version 2.0',
     install_requires=['flowable.external-worker-client>=1.0.1rc1', 'robocorp-actions>=0.2.1', 'robocorp-tasks>=3.1.1', 'robocorp-truststore>=0.9.1'],
     extras_require={
-        'testing': ['pytest', 'vcrpy']
+        'testing': ['pytest', 'vcrpy', 'flowable.external-worker-client>=1.0.1rc1']
     },
 )

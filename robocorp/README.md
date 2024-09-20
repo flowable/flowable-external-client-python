@@ -1,4 +1,4 @@
-# Flowable Robocorp Client
+from typing import Dict# Flowable Robocorp Client
 
 [License:
 ![license](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/flowable/flowable-external-client-python/blob/main/LICENSE)
@@ -31,7 +31,7 @@ The following example `get-weather-forecast.py` can be used as a Robocorp action
 from robocorp.actions import action
 
 @action
-def get_weather_forecast(city: str, days: int, scale: str = "celsius") -> str:
+def get_weather_forecast(city: str, days: int, scale: str = "celsius") -> dict[str, str]:
     """
     Returns weather conditions forecast for a given city.
 
