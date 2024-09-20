@@ -51,15 +51,13 @@ jobs:
       - run: virtualenv venv
       - run: source venv/bin/activate
       - run: pip install setuptools
-      - run: python setup.py install
-        working-directory: ./external-worker/
       - run: python setup.py sdist
-        working-directory: ./external-worker/
+        working-directory: ./robocorp/
       - run: pip wheel --no-deps . -w dist
-        working-directory: ./external-worker/
+        working-directory: ./robocorp/
       - name: Publish package distributions to Test PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
-          packages-dir: external-worker/dist/
+          packages-dir: robocorp/dist/
           verbose: true
