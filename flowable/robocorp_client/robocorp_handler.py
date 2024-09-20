@@ -1,3 +1,4 @@
+import ast
 import json
 import shlex
 
@@ -34,6 +35,29 @@ def create_output_dir(job):
     return 'output/' + job.id + '-' + (job.scope_id or job.process_instance_id) + '-' + job.element_id
 
 
+def add_variables_to_result(work_result, result):
+    json_result = ast.literal_eval(result)
+
+    if isinstance(json_result, dict):
+        for key in json_result:
+            value = json_result[key]
+            if isinstance(value, str):
+                work_result.variable_string(key, value)
+            elif isinstance(value, int):
+                work_result.variable_int(key, value)
+            elif isinstance(value, float):
+                work_result.variable_float(key, value)
+            elif isinstance(value, bool):
+                work_result.variable_boolean(key, value)
+            elif isinstance(value, object):
+                work_result.variable_json(key, value)
+            else:
+                work_result.variable_string(key, str(value))
+    else:
+        work_result.variable_json('result', json_result)
+    return work_result
+
+
 class RobocorpActionHandler:
     def __init__(self, robocorp_action_file: str):
         self.robocorp_action_file = robocorp_action_file
@@ -49,10 +73,12 @@ class RobocorpActionHandler:
         print('---> Execute job "' + job.id + '"', robocorp_args)
         results = call_robocorp(robocorp_args)
         if results.returncode != 0:
-            return worker_result_builder.failure().error_message('failed with status code ' + str(results.returncode)).error_details(results.stdout)
+            print('---> Job execution failed for "' + job.id + '". Output saved to ' + output_dir)
+            return worker_result_builder.failure().error_message('failed with status code ' + str(results.returncode)).error_details(results.stderr + results.stdout)
         result = extract_result(results.stdout)
         print('---> Job execution done for "' + job.id + '" with result ' + result + '". Output saved to ' + output_dir, robocorp_args)
-        return worker_result_builder.success().variable_string('result', result)
+        work_result = worker_result_builder.success()
+        return add_variables_to_result(work_result, result)
 
 
 class RobocorpTaskHandler:
@@ -70,6 +96,7 @@ class RobocorpTaskHandler:
         print('---> Execute job "' + job.id + '"', robocorp_args)
         results = call_robocorp(robocorp_args, mod_name='robocorp.tasks')
         if results.returncode != 0:
-            return worker_result_builder.failure().error_message('failed with status code ' + str(results.returncode)).error_details(results.stdout)
+            print('---> Job execution failed for "' + job.id + '". Output saved to ' + output_dir)
+            return worker_result_builder.failure().error_message('failed with status code ' + str(results.returncode)).error_details(results.stderr + results.stdout)
         print('---> Job execution done for "' + job.id + '". Output saved to ' + output_dir, robocorp_args)
         return worker_result_builder.success()
