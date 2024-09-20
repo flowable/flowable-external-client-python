@@ -1,3 +1,4 @@
+import sys
 import threading
 import time
 from os import getpid
@@ -52,7 +53,7 @@ class ExternalWorkerClient(object):
 
     def __init__(
             self,
-            flowable_host: str = "https://cloud.flowable.com/work",
+            flowable_host: str = "https://trial.flowable.com/work",
             worker_id: str = None,
             auth: AuthBase = None,
             customize_session: Callable[[Session], None] = lambda session: None
@@ -103,5 +104,7 @@ class ExternalWorkerClient(object):
                         result.execute(self._restClient)
                     else:
                         self._restClient.complete_job(job.id)
-                except:
-                    self._restClient.fail_job(job.id)
+                except Exception as e:
+                    print("An error occurred during job execution " + job.id,  file=sys.stderr)
+                    print(e,  file=sys.stderr)
+                    self._restClient.fail_job(job.id, e.__str__())

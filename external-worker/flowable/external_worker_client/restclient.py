@@ -85,6 +85,7 @@ class FlowableExternalWorkerRestClient(object):
             }
         )
         if r.status_code != 200:
+            print(r.text)
             raise FlowableRestException(r.status_code, r.text)
 
         return list(map(response_converter.convert_to_external_worker_acquire_job_response, r.json()))

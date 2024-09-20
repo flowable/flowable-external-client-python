@@ -118,8 +118,6 @@ interactions:
       - no-cache
       Set-Cookie:
       - XSRF-TOKEN=7315a015-53c4-4c28-ba52-4b070af2e92d; Path=/
-      Transfer-Encoding:
-      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -169,8 +167,6 @@ interactions:
       - no-cache
       Set-Cookie:
       - XSRF-TOKEN=43804e08-2ad4-4474-9aab-f1705f53da99; Path=/
-      Transfer-Encoding:
-      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -224,8 +220,6 @@ interactions:
       - no-cache
       Set-Cookie:
       - XSRF-TOKEN=0c1488a0-a248-4d13-9c37-d802fb441c1f; Path=/
-      Transfer-Encoding:
-      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -280,8 +274,6 @@ interactions:
       - timeout=60
       Pragma:
       - no-cache
-      Transfer-Encoding:
-      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -383,8 +375,6 @@ interactions:
       - timeout=60
       Pragma:
       - no-cache
-      Transfer-Encoding:
-      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -481,8 +471,6 @@ interactions:
       - no-cache
       Set-Cookie:
       - XSRF-TOKEN=1f64bb78-a592-4dfc-af73-38f79444b198; Path=/
-      Transfer-Encoding:
-      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -533,8 +521,6 @@ interactions:
       - no-cache
       Set-Cookie:
       - XSRF-TOKEN=9a7c42f5-b841-4b82-8b3c-b867e57abe63; Path=/
-      Transfer-Encoding:
-      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -591,5 +577,60 @@ interactions:
       - 1; mode=block
     status:
       code: 204
+      message: ''
+- request:
+    body: '{"topic": "myTopic", "lockDuration": "PT1M", "numberOfTasks": 1, "numberOfRetries":
+      5, "workerId": "test-worker", "scopeType": null}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '132'
+      Content-Type:
+      - application/json
+      Cookie:
+      - XSRF-TOKEN=94293f77-1ef7-4280-8e87-c6e3aec5682f
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: http://localhost:8090/external-job-api/acquire/jobs
+  response:
+    body:
+      string: '[]'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sat, 07 Sep 2024 09:03:21 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '2'
+    status:
+      code: 200
       message: ''
 version: 1

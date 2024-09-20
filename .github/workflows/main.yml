@@ -1,10 +1,9 @@
-name: External Worker Build and Test
+name: Flowable External Client Build and Test
 
 on: [push, pull_request]
 
 jobs:
-  build:
-
+  test-external-worker-client:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,4 +21,32 @@ jobs:
       - run: virtualenv venv
       - run: source venv/bin/activate
       - run: pip install setuptools
-      - run: python setup.py pytest
+      - run: pip install -e ".[testing]"
+        working-directory: ./external-worker/
+      - run: python -m unittest discover
+        working-directory: ./external-worker/
+  test-robocorp-client:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12.0"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - run: pip install virtualenv
+      - run: virtualenv venv
+      - run: source venv/bin/activate
+      - run: pip install setuptools
+      - run: python setup.py install
+        working-directory: ./external-worker/
+      - run: pip install -e ".[testing]"
+        working-directory: ./robocorp/
+      - run: cp -a external-worker/flowable/external_worker_client robocorp/flowable/ # we need to copy this module over, since it's only searching locally for modules
+      - run: python -m unittest discover
+        working-directory: ./robocorp/
