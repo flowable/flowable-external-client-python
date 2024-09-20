@@ -51,7 +51,7 @@ class TestRestClient(BasicTest):
 
             temperature = get_process_variable(base_url, auth, process_instance_id, 'temperature')
             self.assertIsNotNone(temperature)
-            self.assertEquals(temperature['value'], 18)
+            self.assertEqual(temperature['value'], 18)
         finally:
             terminate_process(base_url, auth, process_instance_id)
             self.remove_deployment()
