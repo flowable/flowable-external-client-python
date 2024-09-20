@@ -21,10 +21,11 @@ jobs:
       - run: virtualenv venv
       - run: source venv/bin/activate
       - run: pip install setuptools
+      - run: cd external-worker/
       - run: python setup.py sdist
       - run: pip wheel --no-deps . -w dist
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          packages-dir: dist/
+          packages-dir: external-worker/dist/
           verbose: true
