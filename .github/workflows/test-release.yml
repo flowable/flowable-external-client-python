@@ -23,13 +23,10 @@ jobs:
       - run: virtualenv venv
       - run: source venv/bin/activate
       - run: pip install setuptools
-      - run: python setup.py sdist
-        working-directory: ./external-worker/
-      - run: pip wheel --no-deps . -w dist
-        working-directory: ./external-worker/
+      - run: cd ./external-worker/ && python setup.py sdist
+      - run: cd ./external-worker/ && pip wheel --no-deps . -w dist
       - name: Publish package distributions to Test PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        working-directory: ./external-worker/
         with:
           repository-url: https://test.pypi.org/legacy/
           packages-dir: external-worker/dist/

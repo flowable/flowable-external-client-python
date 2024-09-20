@@ -43,7 +43,5 @@ jobs:
       - run: source venv/bin/activate
       - run: pip install setuptools
       - run: python external-worker/setup.py install
-      - run: pip install -e ".[testing]"
-        working-directory: ./robocorp/
-      - run: python -m unittest discover
-        working-directory: ./robocorp/
+      - run: cd ./robocorp/ && pip install -e ".[testing]"
+      - run: cd ./robocorp/ && python -m unittest discover
