@@ -9,7 +9,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
     name='flowable.robocorp-client',
     packages=['flowable', 'flowable.robocorp_client'],
-    version='1.0.0rc1',
+    version='1.0.1rc1',
     description='Flowable client to be used with Robocorp. This client connects to a Flowable instance via external worker and executes robocorp tasks or actions.',
     long_description=long_description,
     long_description_content_type='text/markdown',
