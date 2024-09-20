@@ -20,10 +20,11 @@ jobs:
       - run: pip install virtualenv
       - run: virtualenv venv
       - run: source venv/bin/activate
-      - run: cd external-worker/
       - run: pip install setuptools
       - run: pip install -e ".[testing]"
+        working-directory: ./external-worker/
       - run: python -m unittest discover
+        working-directory: ./external-worker/
   test-robocorp-client:
     runs-on: ubuntu-latest
     strategy:
@@ -42,6 +43,9 @@ jobs:
       - run: virtualenv venv
       - run: source venv/bin/activate
       - run: pip install setuptools
-      - run: python external-worker/setup.py install
-      - run: cd ./robocorp/ && pip install -e ".[testing]"
-      - run: cd ./robocorp/ && python -m unittest discover
+      - run: python setup.py install
+        working-directory: ./external-worker/
+      - run: pip install -e ".[testing]"
+        working-directory: ./robocorp/
+      - run: python -m unittest discover
+        working-directory: ./robocorp/
