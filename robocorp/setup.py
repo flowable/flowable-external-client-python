@@ -7,15 +7,15 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name='flowable.external-worker-client',
-    packages=['flowable', 'flowable.external_worker_client'],
+    name='flowable.robocorp-client',
+    packages=['flowable', 'flowable.robocorp_client'],
     version='1.1.0rc1',
-    description='Flowable External Worker Library to connect Python code to Flowable using an external worker.',
+    description='Flowable client to be used with Robocorp. This client connects to a Flowable instance via external worker and executes robocorp tasks or actions.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Flowable',
     license='Apache License, Version 2.0',
-    install_requires=['requests>=2.27.0'],
+    install_requires=['flowable.external-worker-client>=1.1.0rc1', 'robocorp-actions>=0.2.1', 'robocorp-tasks>=3.1.1', 'robocorp-truststore>=0.9.1'],
     extras_require={
         'testing': ['pytest', 'vcrpy']
     },
