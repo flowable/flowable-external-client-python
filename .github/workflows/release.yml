@@ -21,8 +21,39 @@ jobs:
       - run: virtualenv venv
       - run: source venv/bin/activate
       - run: pip install setuptools
-      - run: cd ./external-worker/ && python setup.py sdist
-      - run: cd ./external-worker/ && pip wheel --no-deps . -w dist
+      - run: python setup.py sdist
+        working-directory: ./external-worker/
+      - run: pip wheel --no-deps . -w dist
+        working-directory: ./external-worker/
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: external-worker/dist/
+          verbose: true
+
+  build-robocorp-client:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12.0
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.0
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - run: pip install virtualenv
+      - run: virtualenv venv
+      - run: source venv/bin/activate
+      - run: pip install setuptools
+      - run: python setup.py install
+        working-directory: ./external-worker/
+      - run: python setup.py sdist
+        working-directory: ./external-worker/
+      - run: pip wheel --no-deps . -w dist
+        working-directory: ./external-worker/
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
