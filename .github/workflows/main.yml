@@ -44,6 +44,6 @@ jobs:
       - run: pip install setuptools
       - run: python external-worker/setup.py install
       - run: pip install -e ".[testing]"
-        working-directory: robocorp/
+        working-directory: ./robocorp/
       - run: python -m unittest discover
-        working-directory: robocorp/
+        working-directory: ./robocorp/
