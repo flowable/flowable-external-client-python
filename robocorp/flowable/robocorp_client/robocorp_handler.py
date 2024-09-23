@@ -84,7 +84,7 @@ class RobocorpActionHandler:
         robocorp_args = ['run', self.robocorp_action_file, '-a' + action.__str__(), '--log-output-to-stdout=json', '-o' + output_dir, '--']
         robocorp_args.extend(params)
         print('---> Execute job "' + job.id + '"', robocorp_args)
-        results = call_robocorp(robocorp_args)
+        results = call_robocorp(robocorp_args, mod_name='robocorp.actions')
         if results.returncode != 0:
             print('---> Job execution failed for "' + job.id + '". Output saved to ' + output_dir)
             return worker_result_builder.failure().error_message('failed with status code ' + str(results.returncode)).error_details(results.stderr + results.stdout)
