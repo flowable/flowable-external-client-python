@@ -4,13 +4,13 @@ from requests.auth import HTTPBasicAuth
 
 from flowable.external_worker_client import ExternalWorkerClient
 from flowable.external_worker_client.cloud_token import FlowableCloudToken
-from flowable.robocorp_client.robocorp_handler import RobocorpActionHandler, RobocorpTaskHandler
+from flowable.robocorp_client.robocorp_handler import RobocorpActionHandler, RobocorpTaskHandler, RobocorpRobotHandler
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flowable Robocorp Client")
 
     parser.add_argument('topic', help='Topic of the Robocorp Action to listen to')
-    parser.add_argument('mode', type=str, choices=['action', 'task'], help='Type of robocorp action/task')
+    parser.add_argument('mode', type=str, choices=['action', 'task', 'robot'], help='Type of robocorp action/task/robot')
     parser.add_argument('path', type=str, help='The directory or file with the actions/tasks to run.')
     parser.add_argument('--flowable-host', type=str, default='https://trial.flowable.com', help='URL of Flowable Work')
     parser.add_argument('--flowable-token', type=str, help='Bearer Token, can be used for example with the Flowable Trial')
@@ -32,6 +32,8 @@ if __name__ == "__main__":
 
     if args.mode == 'action':
         robocorp_job_handler = RobocorpActionHandler(robocorp_action_file)
-    else:
+    elif args.mode == 'task':
         robocorp_job_handler = RobocorpTaskHandler(robocorp_action_file)
+    else:
+        robocorp_job_handler = RobocorpRobotHandler(robocorp_action_file)
     subscription = client.subscribe(topic, robocorp_job_handler.handle_task)

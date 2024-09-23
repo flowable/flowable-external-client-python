@@ -1,6 +1,8 @@
 import ast
 import json
+import os
 import shlex
+import tempfile
 
 from flowable.external_worker_client import ExternalWorkerAcquireJobResponse, WorkerResultBuilder
 from flowable.robocorp_client.call_robocorp import call_robocorp
@@ -15,6 +17,18 @@ def extract_action_and_parameters(job):
         else:
             if variable.value is not None:
                 params.append('--' + shlex.quote(variable.name) + '=' + shlex.quote(variable.value.__str__()))
+    return action, params
+
+
+def extract_action_and_parameters_map(job):
+    action = None
+    params = {}
+    for variable in job.variables:
+        if variable.name == '__robocorpTaskName':
+            action = variable.value
+        else:
+            if variable.value is not None:
+                params[variable.name] = variable.value
     return action, params
 
 
@@ -35,8 +49,7 @@ def create_output_dir(job):
     return 'output/' + job.id + '-' + (job.scope_id or job.process_instance_id) + '-' + job.element_id
 
 
-def add_variables_to_result(work_result, result):
-    json_result = ast.literal_eval(result)
+def add_variables_to_result(work_result, json_result):
 
     if isinstance(json_result, dict):
         for key in json_result:
@@ -78,7 +91,8 @@ class RobocorpActionHandler:
         result = extract_result(results.stdout)
         print('---> Job execution done for "' + job.id + '" with result ' + result + '". Output saved to ' + output_dir, robocorp_args)
         work_result = worker_result_builder.success()
-        return add_variables_to_result(work_result, result)
+        json_result = ast.literal_eval(result)
+        return add_variables_to_result(work_result, json_result)
 
 
 class RobocorpTaskHandler:
@@ -100,3 +114,38 @@ class RobocorpTaskHandler:
             return worker_result_builder.failure().error_message('failed with status code ' + str(results.returncode)).error_details(results.stderr + results.stdout)
         print('---> Job execution done for "' + job.id + '". Output saved to ' + output_dir, robocorp_args)
         return worker_result_builder.success()
+
+
+class RobocorpRobotHandler:
+    def __init__(self, robocorp_action_file: str):
+        self.robocorp_action_file = robocorp_action_file
+
+    def handle_task(self, job: ExternalWorkerAcquireJobResponse, worker_result_builder: WorkerResultBuilder):
+        action, params = extract_action_and_parameters_map(job)
+        if action is None:
+            return worker_result_builder.failure().error_message('failed to find robocorp action name')
+
+        output_dir = create_output_dir(job)
+        robocorp_args = ['--rpa', '--name', action.__str__(), '--report', 'NONE', '--outputdir', output_dir, self.robocorp_action_file]
+        print('---> Execute job "' + job.id + '"', robocorp_args)
+        tmp = tempfile.NamedTemporaryFile(delete=False)
+        tmp.close()
+        new_env = os.environ.copy()
+        new_env["FLOWABLE_INPUT_VARIABLES"] = json.dumps(params)
+        new_env["FLOWABLE_OUTPUT_FILE"] = tmp.name
+        results = call_robocorp(robocorp_args, mod_name='robot', env=new_env)
+
+        if results.returncode != 0:
+            print('---> Job execution failed for "' + job.id + '". Output saved to ' + output_dir)
+            os.unlink(tmp.name)
+            return worker_result_builder.failure().error_message('failed with status code ' + str(results.returncode)).error_details(results.stderr + results.stdout)
+        print('---> Job execution done for "' + job.id + '". Output saved to ' + output_dir, robocorp_args)
+
+        with open(tmp.name, 'r') as content_file:
+            content = json.loads(content_file.read())
+        os.unlink(tmp.name)
+
+        if content is None:
+            return worker_result_builder.success()
+        else:
+            return add_variables_to_result(worker_result_builder.success(), content)

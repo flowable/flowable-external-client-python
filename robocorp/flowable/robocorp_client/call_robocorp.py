@@ -1,12 +1,15 @@
+import os
 import subprocess
 import sys
 
 
-def call_robocorp(args, mod_name='robocorp.actions'):
+def call_robocorp(args, mod_name, env=None):
+    if env is None:
+        env = os.environ.copy()
     call_args = [sys.executable, "-m", mod_name]
     call_args.extend(args)
     try:
-        return subprocess.run(call_args, capture_output=True, text=True)
+        return subprocess.run(call_args, capture_output=True, text=True, env=env)
     except subprocess.CalledProcessError as exc:
         print("ERROR: failed to call robocorp", exc.returncode, exc.output)
 
