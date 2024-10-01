@@ -31,7 +31,7 @@ jobs:
           packages-dir: external-worker/dist/
           verbose: true
 
-  build-robocorp-client:
+  build-rpa-framework-client:
     runs-on: ubuntu-latest
     environment: release
     permissions:
@@ -49,11 +49,11 @@ jobs:
       - run: source venv/bin/activate
       - run: pip install setuptools
       - run: python setup.py sdist
-        working-directory: ./robocorp/
+        working-directory: ./rpaframework/
       - run: pip wheel --no-deps . -w dist
-        working-directory: ./robocorp/
+        working-directory: ./rpaframework/
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          packages-dir: robocorp/dist/
+          packages-dir: rpaframework/dist/
           verbose: true
