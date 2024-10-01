@@ -1,0 +1,669 @@
+interactions:
+- request:
+    body: "--b17ad67bd020881a19cf3c9437c51551\r\nContent-Disposition: form-data; name=\"file\";
+      filename=\"robocorpExample.bpmn\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<definitions
+      xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+      xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:flowable=\"http://flowable.org/bpmn\"
+      xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:omgdc=\"http://www.omg.org/spec/DD/20100524/DC\"
+      xmlns:omgdi=\"http://www.omg.org/spec/DD/20100524/DI\" xmlns:design=\"http://flowable.org/design\"
+      typeLanguage=\"http://www.w3.org/2001/XMLSchema\" expressionLanguage=\"http://www.w3.org/1999/XPath\"
+      targetNamespace=\"http://flowable.org/test\" design:palette=\"flowable-work-process-palette\">\n
+      \ <process id=\"robocorpExample\" name=\"Robocorp Example\" isExecutable=\"true\"
+      flowable:candidateStarterGroups=\"flowableUser\">\n    <extensionElements>\n
+      \     <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>\n      <design:creationdate><![CDATA[2024-09-20T12:25:24.171Z]]></design:creationdate>\n
+      \     <design:modificationdate><![CDATA[2024-09-20T12:27:34.396Z]]></design:modificationdate>\n
+      \   </extensionElements>\n    <serviceTask id=\"bpmnTask_1\" name=\"Get Weather
+      Forecast\" flowable:type=\"external-worker\" flowable:topic=\"myTopic\" flowable:exclusive=\"false\">\n
+      \     <extensionElements>\n        <flowable:externalWorkerInParameter source=\"city\"
+      target=\"city\"></flowable:externalWorkerInParameter>\n        <flowable:externalWorkerInParameter
+      source=\"days\" target=\"days\"></flowable:externalWorkerInParameter>\n        <flowable:externalWorkerInParameter
+      sourceExpression=\"get_weather_forecast\" target=\"__rpaFrameworkTaskName\"></flowable:externalWorkerInParameter>\n
+      \       <flowable:externalWorkerOutParameter source=\"temperature\" target=\"temperature\"></flowable:externalWorkerOutParameter>\n
+      \       <design:stencilid><![CDATA[RobocorpTask]]></design:stencilid>\n        <design:stencilsuperid><![CDATA[ExternalWorkerTask]]></design:stencilsuperid>\n
+      \     </extensionElements>\n    </serviceTask>\n    <startEvent id=\"startnoneevent1\"
+      flowable:initiator=\"initiator\" flowable:formFieldValidation=\"false\">\n      <extensionElements>\n
+      \       <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>\n
+      \       <design:stencilid><![CDATA[StartNoneEvent]]></design:stencilid>\n      </extensionElements>\n
+      \   </startEvent>\n    <endEvent id=\"bpmnEndEvent_3\">\n      <extensionElements>\n
+      \       <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>\n      </extensionElements>\n
+      \   </endEvent>\n    <sequenceFlow id=\"bpmnSequenceFlow_4\" sourceRef=\"bpmnTask_1\"
+      targetRef=\"bpmnEndEvent_3\">\n      <extensionElements>\n        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>\n
+      \     </extensionElements>\n    </sequenceFlow>\n    <sequenceFlow id=\"bpmnSequenceFlow_2\"
+      sourceRef=\"startnoneevent1\" targetRef=\"bpmnTask_1\">\n      <extensionElements>\n
+      \       <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>\n      </extensionElements>\n
+      \   </sequenceFlow>\n  </process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_robocorpExample\">\n
+      \   <bpmndi:BPMNPlane bpmnElement=\"robocorpExample\" id=\"BPMNPlane_robocorpExample\">\n
+      \     <bpmndi:BPMNShape bpmnElement=\"bpmnTask_1\" id=\"BPMNShape_bpmnTask_1\">\n
+      \       <omgdc:Bounds height=\"80.0\" width=\"100.0\" x=\"397.0\" y=\"236.0\"></omgdc:Bounds>\n
+      \     </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape bpmnElement=\"startnoneevent1\"
+      id=\"BPMNShape_startnoneevent1\">\n        <omgdc:Bounds height=\"30.0\" width=\"30.0\"
+      x=\"317.0\" y=\"261.0\"></omgdc:Bounds>\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape
+      bpmnElement=\"bpmnEndEvent_3\" id=\"BPMNShape_bpmnEndEvent_3\">\n        <omgdc:Bounds
+      height=\"28.0\" width=\"28.0\" x=\"547.0\" y=\"262.0\"></omgdc:Bounds>\n      </bpmndi:BPMNShape>\n
+      \     <bpmndi:BPMNEdge bpmnElement=\"bpmnSequenceFlow_4\" id=\"BPMNEdge_bpmnSequenceFlow_4\"
+      flowable:sourceDockerX=\"50.0\" flowable:sourceDockerY=\"40.0\" flowable:targetDockerX=\"14.0\"
+      flowable:targetDockerY=\"14.0\">\n        <omgdi:waypoint x=\"497.0\" y=\"276.0\"></omgdi:waypoint>\n
+      \       <omgdi:waypoint x=\"547.0\" y=\"276.0\"></omgdi:waypoint>\n      </bpmndi:BPMNEdge>\n
+      \     <bpmndi:BPMNEdge bpmnElement=\"bpmnSequenceFlow_2\" id=\"BPMNEdge_bpmnSequenceFlow_2\"
+      flowable:sourceDockerX=\"15.0\" flowable:sourceDockerY=\"15.0\" flowable:targetDockerX=\"50.0\"
+      flowable:targetDockerY=\"40.0\">\n        <omgdi:waypoint x=\"347.0\" y=\"276.0\"></omgdi:waypoint>\n
+      \       <omgdi:waypoint x=\"397.0\" y=\"276.0\"></omgdi:waypoint>\n      </bpmndi:BPMNEdge>\n
+      \   </bpmndi:BPMNPlane>\n  </bpmndi:BPMNDiagram>\n</definitions>\r\n--b17ad67bd020881a19cf3c9437c51551--\r\n"
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4598'
+      Content-Type:
+      - multipart/form-data; boundary=b17ad67bd020881a19cf3c9437c51551
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: http://localhost:8090/flowable-work/process-api/repository/deployments
+  response:
+    body:
+      string: '{"id":"PRC-b6366979-7fd7-11ef-b484-768b56d159b1","name":"robocorpExample","deploymentTime":"2024-10-01T11:29:52.349+02:00","category":null,"parentDeploymentId":"PRC-b6366979-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/process-api/repository/deployments/PRC-b6366979-7fd7-11ef-b484-768b56d159b1","tenantId":""}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:51 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=ec06ac38-7349-46a1-b28a-7cf8ddb69c9d; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '337'
+    status:
+      code: 201
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/process-api/repository/process-definitions?deploymentId=PRC-b6366979-7fd7-11ef-b484-768b56d159b1
+  response:
+    body:
+      string: '{"data":[{"id":"PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/process-api/repository/process-definitions/PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","key":"robocorpExample","version":10,"name":"Robocorp
+        Example","description":null,"tenantId":"","deploymentId":"PRC-b6366979-7fd7-11ef-b484-768b56d159b1","deploymentUrl":"http://localhost:8090/flowable-work/process-api/repository/deployments/PRC-b6366979-7fd7-11ef-b484-768b56d159b1","resource":"http://localhost:8090/flowable-work/process-api/repository/deployments/PRC-b6366979-7fd7-11ef-b484-768b56d159b1/resources/robocorpExample.bpmn","diagramResource":null,"category":"http://flowable.org/test","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false}],"total":1,"start":0,"sort":"name","order":"asc","size":1}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:51 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=816658d3-fecc-4c2e-bf08-fb0a26f17d30; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '859'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: '{"processDefinitionId": "PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1",
+      "variables": [{"name": "city", "type": "string", "value": "Zurich"}, {"name":
+      "days", "type": "integer", "value": 3}]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: http://localhost:8090/flowable-work/process-api/runtime/process-instances
+  response:
+    body:
+      string: '{"id":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/process-api/runtime/process-instances/PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","name":null,"businessKey":null,"businessStatus":null,"suspended":false,"ended":false,"processDefinitionId":"PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","processDefinitionUrl":"http://localhost:8090/flowable-work/process-api/repository/process-definitions/PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","processDefinitionName":"Robocorp
+        Example","processDefinitionDescription":null,"activityId":null,"startUserId":"admin","startTime":"2024-10-01T11:29:52.687+02:00","superProcessInstanceId":null,"variables":[{"name":"city","type":"string","value":"Zurich","scope":"local"},{"name":"initiator","type":"string","value":"admin","scope":"local"},{"name":"days","type":"integer","value":3,"scope":"local"}],"callbackId":null,"callbackType":null,"referenceId":null,"referenceType":null,"propagatedStageInstanceId":null,"tenantId":"","completed":false}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:51 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=ab8f5bf7-b57c-4acb-a00f-a8550198eb0d; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '1048'
+    status:
+      code: 201
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/external-job-api/jobs?processInstanceId=PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1
+  response:
+    body:
+      string: '{"data":[{"id":"JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","correlationId":"b66d5808-7fd7-11ef-b484-768b56d159b1","processInstanceId":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","processDefinitionId":"PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","executionId":"PRC-b66a71d2-7fd7-11ef-b484-768b56d159b1","scopeId":null,"subScopeId":null,"scopeDefinitionId":null,"scopeType":null,"elementId":"bpmnTask_1","elementName":"Get
+        Weather Forecast","retries":3,"exceptionMessage":null,"dueDate":null,"createTime":"2024-10-01T09:29:52.709Z","tenantId":"","lockOwner":null,"lockExpirationTime":null}],"total":1,"start":0,"sort":"id","order":"asc","size":1}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:51 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=e8cf384b-ef1a-4adb-bcae-fa0a40aed48a; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '766'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1?i=0
+  response:
+    body:
+      string: '{"id":"JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","correlationId":"b66d5808-7fd7-11ef-b484-768b56d159b1","processInstanceId":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","processDefinitionId":"PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","executionId":"PRC-b66a71d2-7fd7-11ef-b484-768b56d159b1","scopeId":null,"subScopeId":null,"scopeDefinitionId":null,"scopeType":null,"elementId":"bpmnTask_1","elementName":"Get
+        Weather Forecast","retries":3,"exceptionMessage":null,"dueDate":null,"createTime":"2024-10-01T09:29:52.709Z","tenantId":"","lockOwner":null,"lockExpirationTime":null}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:53 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=442081ff-4c73-4b8e-a4a2-f0265f4fde8a; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '700'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1?i=1
+  response:
+    body:
+      string: '{"id":"JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","correlationId":"b66d5808-7fd7-11ef-b484-768b56d159b1","processInstanceId":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","processDefinitionId":"PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","executionId":"PRC-b66a71d2-7fd7-11ef-b484-768b56d159b1","scopeId":null,"subScopeId":null,"scopeDefinitionId":null,"scopeType":null,"elementId":"bpmnTask_1","elementName":"Get
+        Weather Forecast","retries":3,"exceptionMessage":null,"dueDate":null,"createTime":"2024-10-01T09:29:52.709Z","tenantId":"","lockOwner":"lelia.local-47149","lockExpirationTime":"2024-10-01T09:30:53.302Z"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:53 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=96ace30d-0efa-4679-ab83-401961399af7; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '737'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1?i=2
+  response:
+    body:
+      string: '{"id":"JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","correlationId":"b66d5808-7fd7-11ef-b484-768b56d159b1","processInstanceId":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","processDefinitionId":"PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","executionId":"PRC-b66a71d2-7fd7-11ef-b484-768b56d159b1","scopeId":null,"subScopeId":null,"scopeDefinitionId":null,"scopeType":null,"elementId":"bpmnTask_1","elementName":"Get
+        Weather Forecast","retries":3,"exceptionMessage":null,"dueDate":null,"createTime":"2024-10-01T09:29:52.709Z","tenantId":"","lockOwner":"lelia.local-47149","lockExpirationTime":"2024-10-01T09:30:53.302Z"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:53 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=eddff1a8-83e4-499f-94ca-aaa88137ec8f; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '737'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1?i=3
+  response:
+    body:
+      string: '{"id":"JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","url":"http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1","correlationId":"b66d5808-7fd7-11ef-b484-768b56d159b1","processInstanceId":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","processDefinitionId":"PRC-robocorpExample:10:b6399dcb-7fd7-11ef-b484-768b56d159b1","executionId":"PRC-b66a71d2-7fd7-11ef-b484-768b56d159b1","scopeId":null,"subScopeId":null,"scopeDefinitionId":null,"scopeType":null,"elementId":"bpmnTask_1","elementName":"Get
+        Weather Forecast","retries":3,"exceptionMessage":null,"dueDate":null,"createTime":"2024-10-01T09:29:52.709Z","tenantId":"","lockOwner":"lelia.local-47149","lockExpirationTime":"2024-10-01T09:30:53.302Z"}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=d3b98fc6-9f60-4c54-9aa7-5df07ff01ade; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '737'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/external-job-api/jobs/JOB-b66d5809-7fd7-11ef-b484-768b56d159b1?i=4
+  response:
+    body:
+      string: '{"message":"Not found","exception":"Could not find external worker
+        job with id ''JOB-b66d5809-7fd7-11ef-b484-768b56d159b1''."}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=f859d5d9-5b8d-4d16-9e70-f16d38c67574; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '124'
+    status:
+      code: 404
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/process-api/history/historic-variable-instances?processInstanceId=PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1&variableName=temperature
+  response:
+    body:
+      string: '{"data":[{"id":"VAR-b754aacd-7fd7-11ef-b484-768b56d159b1","processInstanceId":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","processInstanceUrl":"http://localhost:8090/flowable-work/process-api/history/historic-process-instances/PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","taskId":null,"executionId":"PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1","variable":{"name":"temperature","type":"integer","value":18,"scope":"global"}}],"total":1,"start":0,"sort":"variableName","order":"asc","size":1}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=aca3f907-ff15-471b-90d6-48e4c307172f; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '485'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.32.3
+    method: DELETE
+    uri: http://localhost:8090/flowable-work/process-api/runtime/process-instances/PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1
+  response:
+    body:
+      string: '{"message":"Not found","exception":"Could not find a process instance
+        with id ''PRC-b669fc9d-7fd7-11ef-b484-768b56d159b1''."}'
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 01 Oct 2024 09:29:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=21dffd06-24de-469e-8bf9-36c7b9af040f; Path=/flowable-work
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers,accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '123'
+    status:
+      code: 404
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.32.3
+    method: DELETE
+    uri: http://localhost:8090/flowable-work/process-api/repository/deployments/PRC-b6366979-7fd7-11ef-b484-768b56d159b1
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 01 Oct 2024 09:29:54 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=f95f3ece-63d2-4caf-ba27-01fe5e228524; Path=/flowable-work
+      Vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 204
+      message: ''
+version: 1

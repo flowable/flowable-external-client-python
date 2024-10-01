@@ -14,20 +14,37 @@ from tests.vcr import my_vcr
 class TestRestClient(BasicTest):
     @my_vcr.use_cassette
     def test_with_custom_action(self):
+        self.run_test(
+            [sys.executable, "-m", 'flowable.rpaframework_client',
+             '--flowable-host', base_url,
+             '--flowable-username', auth.username,
+             '--flowable-password', auth.password,
+             '--mode', 'action',
+             'myTopic',
+             os.path.join(os.path.dirname(os.path.abspath(__file__)), 'robocorp_action_weather.py')
+             ]
+        )
+
+    @my_vcr.use_cassette
+    def test_with_robot(self):
+        self.run_test(
+            [sys.executable, "-m", 'flowable.rpaframework_client',
+             '--flowable-host', base_url,
+             '--flowable-username', auth.username,
+             '--flowable-password', auth.password,
+             'myTopic',
+             os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rpaframework_weather.robot')
+             ]
+        )
+
+    def run_test(self, call_args):
         self.deploy_process('robocorpExample.bpmn')
         process_instance_id = start_process(base_url, auth, self._process_definition_id, [
             {'name': 'city', 'type': 'string', 'value': 'Zurich'},
             {'name': 'days', 'type': 'integer', 'value': 3}
         ])
         try:
-            call_args = [sys.executable, "-m", 'flowable.robocorp_client',
-                         '--flowable-host', base_url,
-                         '--flowable-username', auth.username,
-                         '--flowable-password', auth.password,
-                         'myTopic',
-                         'action',
-                         os.path.join(os.path.dirname(os.path.abspath(__file__)), 'robocorp_action_weather.py')
-                         ]
+
             print(" ".join(call_args))
 
             r = requests.get(base_url + '/external-job-api/jobs?processInstanceId=' + process_instance_id, auth=auth)

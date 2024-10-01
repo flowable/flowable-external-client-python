@@ -10,9 +10,9 @@
       <extensionElements>
         <flowable:externalWorkerInParameter source="city" target="city"></flowable:externalWorkerInParameter>
         <flowable:externalWorkerInParameter source="days" target="days"></flowable:externalWorkerInParameter>
-        <flowable:externalWorkerInParameter sourceExpression="get_weather_forecast" target="__robocorpTaskName"></flowable:externalWorkerInParameter>
+        <flowable:externalWorkerInParameter sourceExpression="get_weather_forecast" target="__rpaFrameworkTaskName"></flowable:externalWorkerInParameter>
         <flowable:externalWorkerOutParameter source="temperature" target="temperature"></flowable:externalWorkerOutParameter>
-        <design:stencilid><![CDATA[RobocorpTask]]></design:stencilid>
+        <design:stencilid><![CDATA[RpaFrameworkTask]]></design:stencilid>
         <design:stencilsuperid><![CDATA[ExternalWorkerTask]]></design:stencilsuperid>
       </extensionElements>
     </serviceTask>

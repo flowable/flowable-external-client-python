@@ -19,7 +19,6 @@ class API:
     def flw_output(self, name: str, value: any):
         output_file_name = os.environ.get("FLOWABLE_OUTPUT_FILE")
         self.result[name] = value
-        print('assign ' + name + '=' + value)
         if output_file_name is not None:
             with open(output_file_name, "w") as f:
                 f.write(json.dumps(self.result))

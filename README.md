@@ -9,4 +9,4 @@ This is a collection of multiple Flowable Python clients.
 Currently, the project consists out of:
 
 * [External Worker Client](./external-worker): A library to connect custom application code to Flowable with the external worker functionality
-* [Robocorp Client](./robocorp-client): A python module to execute Robocorp actions and tasks with the Flowable Robocorp task (based on the external worker).
+* [RPA Framework Client](./rpaframework): A python module to execute RPA Framework tasks with the Flowable RPA Framework task (based on the external worker).
