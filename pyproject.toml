@@ -26,9 +26,14 @@ testing = [
 Homepage = "https://github.com/EOEPCA/eoepca-flowable-external-client-python"
 Issues = "https://github.com/EOEPCA/eoepca-flowable-external-client-python/issues"
 
-[tool.setuptools]
-packages = ["flowable", "flowable.external-worker-client"]
+#[tool.setuptools]
+#packages = ["flowable", "flowable.external-worker-client"]
+#
+#[tool.setuptools.package-dir]
+#flowable = "external-worker/flowable"
+##"flowable.external-worker-client" = "flowable/external_worker_client"
 
-[tool.setuptools.package-dir]
-flowable = "external-worker/flowable"
-"flowable.external-worker-client" = "flowable/external_worker_client"
+[tool.setuptools.packages.find]
+where = ["external-worker"]
+include = ["flowable*"] 
+namespaces = false
