@@ -31,3 +31,4 @@ packages = ["flowable", "flowable.external-worker-client"]
 
 [tool.setuptools.package-dir]
 flowable = "external-worker/flowable"
+"flowable.external-worker-client" = "external-worker/flowable/external_worker_client"
