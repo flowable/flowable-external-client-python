@@ -1,5 +1,5 @@
 [project]
-name = "eoepca-flowable.external-worker-client"
+name = "flowable.external-worker-client"
 version = "0.1"
 authors = [
     {name = "Flowable"},
