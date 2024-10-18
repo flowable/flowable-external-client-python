@@ -29,7 +29,8 @@ def convert_to_external_worker_job_response(o) -> ExternalWorkerJobResponse:
 
 def convert_to_external_worker_acquire_job_response(o) -> ExternalWorkerAcquireJobResponse:
     return ExternalWorkerAcquireJobResponse(
-        list(map(convert_to_engine_rest_variable, o.get('variables'))),
+        #list(map(convert_to_engine_rest_variable, o.get('variables'))),
+        {item['name']: {k: v for k, v in item.items() if k != 'name'} for item in o.get('variables')},
         id=o.get('id'),
         url=o.get('url'),
         correlation_id=o.get('correlationId'),

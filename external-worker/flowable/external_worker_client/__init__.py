@@ -44,8 +44,8 @@ class ExternalWorkerSubscription(object):
 
 
 CallbackHandlerType = Union[
-    Callable[[ExternalWorkerAcquireJobResponse, WorkerResultBuilder], WorkResult],
-    Callable[[ExternalWorkerAcquireJobResponse, WorkerResultBuilder], None]
+    Callable[[ExternalWorkerAcquireJobResponse, WorkerResultBuilder, dict], WorkResult],
+    Callable[[ExternalWorkerAcquireJobResponse, WorkerResultBuilder, dict], None]
 ]
 
 
@@ -56,7 +56,8 @@ class ExternalWorkerClient(object):
             flowable_host: str = "https://trial.flowable.com/work",
             worker_id: str = None,
             auth: AuthBase = None,
-            customize_session: Callable[[Session], None] = lambda session: None
+            customize_session: Callable[[Session], None] = lambda session: None,
+            config=None
     ) -> None:
         self._restClient = FlowableExternalWorkerRestClient(
             flowable_host=flowable_host,
@@ -64,6 +65,8 @@ class ExternalWorkerClient(object):
             auth=auth,
             customize_session=customize_session
         )
+        config = config if config is not None else {}
+        self.config = config
 
     def subscribe(
             self,
@@ -99,7 +102,7 @@ class ExternalWorkerClient(object):
 
             for job in jobs:
                 try:
-                    result = callback_handler(job, WorkerResultBuilder(job))
+                    result = callback_handler(job, WorkerResultBuilder(job), config=self.config)
                     if result is not None:
                         result.execute(self._restClient)
                     else:
