@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "flowable.external-worker-client"
 version = "0.1"
@@ -7,6 +11,7 @@ authors = [
 ]
 description = "EOEPCA integration of Flowable External Worker Library for Python."
 readme = "README.md"
+license = {file = "LICENSE"}
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -26,14 +31,5 @@ testing = [
 Homepage = "https://github.com/EOEPCA/eoepca-flowable-external-client-python"
 Issues = "https://github.com/EOEPCA/eoepca-flowable-external-client-python/issues"
 
-#[tool.setuptools]
-#packages = ["flowable", "flowable.external-worker-client"]
-#
-#[tool.setuptools.package-dir]
-#flowable = "external-worker/flowable"
-##"flowable.external-worker-client" = "flowable/external_worker_client"
-
-[tool.setuptools.packages.find]
-where = ["external-worker"]
-include = ["flowable*"] 
-namespaces = false
+[tool.hatch.build.targets.wheel]
+packages = ["external-worker/flowable"]
