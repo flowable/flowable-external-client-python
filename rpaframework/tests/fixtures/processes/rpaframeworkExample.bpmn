@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:design="http://flowable.org/design" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://flowable.org/test" design:palette="flowable-work-process-palette">
-  <process id="robocorpExample" name="Robocorp Example" isExecutable="true" flowable:candidateStarterGroups="flowableUser">
+  <process id="rpaframeworkExample" name="RPA Framework Example" isExecutable="true" flowable:candidateStarterGroups="flowableUser">
     <extensionElements>
       <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
       <design:creationdate><![CDATA[2024-09-20T12:25:24.171Z]]></design:creationdate>
@@ -12,7 +12,7 @@
         <flowable:externalWorkerInParameter source="days" target="days"></flowable:externalWorkerInParameter>
         <flowable:externalWorkerInParameter sourceExpression="get_weather_forecast" target="__rpaFrameworkTaskName"></flowable:externalWorkerInParameter>
         <flowable:externalWorkerOutParameter source="temperature" target="temperature"></flowable:externalWorkerOutParameter>
-        <design:stencilid><![CDATA[RobocorpTask]]></design:stencilid>
+        <design:stencilid><![CDATA[RpaFrameworkTask]]></design:stencilid>
         <design:stencilsuperid><![CDATA[ExternalWorkerTask]]></design:stencilsuperid>
       </extensionElements>
     </serviceTask>
@@ -38,8 +38,8 @@
       </extensionElements>
     </sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_robocorpExample">
-    <bpmndi:BPMNPlane bpmnElement="robocorpExample" id="BPMNPlane_robocorpExample">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_rpaframeworkExample">
+    <bpmndi:BPMNPlane bpmnElement="rpaframeworkExample" id="BPMNPlane_rpaframeworkExample">
       <bpmndi:BPMNShape bpmnElement="bpmnTask_1" id="BPMNShape_bpmnTask_1">
         <omgdc:Bounds height="80.0" width="100.0" x="397.0" y="236.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

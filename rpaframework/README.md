@@ -26,9 +26,18 @@ The following [diagram BPMN](docs/rpaframeworkExample.bpmn) illustrates a basic 
 
 ![Simple BPMN diagram with a start event, a RPA Framework task and an end event](docs/rpaframeworkExample.png)
 
-The following example `get-weather-forecast.py` can be used as an RPA framework task:
+The following example `myTask.robot` can be used as an RPA framework task:
 ```
+*** Settings ***
+Library		flowable.rpaframework_client.API
 
+*** Tasks ***
+Get weather forecast
+    ${city}=		flw input	city
+    ${days}=		flw input	days
+    ${length}=      Get Length  ${city}
+    ${temperature}=     Evaluate    ${days} * ${length}
+    flw output		temperature     ${temperature}
 ```
 
 The RPA Framework worker can be started with the following command:

@@ -38,7 +38,7 @@ class TestRestClient(BasicTest):
         )
 
     def run_test(self, call_args):
-        self.deploy_process('robocorpExample.bpmn')
+        self.deploy_process('rpaframeworkExample.bpmn')
         process_instance_id = start_process(base_url, auth, self._process_definition_id, [
             {'name': 'city', 'type': 'string', 'value': 'Zurich'},
             {'name': 'days', 'type': 'integer', 'value': 3}
