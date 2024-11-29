@@ -12,7 +12,7 @@ if __name__ == "__main__":
     parser.add_argument('topic', help='Topic of the client to listen to')
     parser.add_argument('path', type=str, help='The directory or file with the RPA framework task to run.')
     parser.add_argument('--mode', type=str, choices=['robot', 'action', 'task'], default='robot', help='Type of rpaframework robot or robocorp action or task')
-    parser.add_argument('--flowable-host', type=str, default='https://trial.flowable.com', help='URL of Flowable Work')
+    parser.add_argument('--flowable-host', type=str, default='https://trial.flowable.com/work', help='URL of Flowable Work')
     parser.add_argument('--flowable-token', type=str, help='Bearer Token, can be used for example with the Flowable Trial')
     parser.add_argument('--flowable-username', type=str, help='Username for Flowable Work when using Basic Authentication')
     parser.add_argument('--flowable-password', type=str, help='Password for Flowable Work when using Basic Authentication')
