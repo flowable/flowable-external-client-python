@@ -296,6 +296,7 @@ class TestRestClient(BasicTest):
 
     # this test is a bit special since it requires a context path.
     # without context path this test will also succeed with a trailing slash
+    @my_vcr.use_cassette
     def test_with_trailing_slash_for_url(self):
         try:
             client = restclient.FlowableExternalWorkerRestClient(
@@ -312,6 +313,7 @@ class TestRestClient(BasicTest):
 
     # this test is a bit special since it requires a context path.
     # without context path this test will also succeed with a trailing slash
+    @my_vcr.use_cassette
     def test_with_trailing_slash_for_url_with_200_as_result(self):
         try:
             client = restclient.FlowableExternalWorkerRestClient(

@@ -1,0 +1,51 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic YWRtaW46dGVzdA==
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://localhost:8090/flowable-work/external-job-api/jobs
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Mon, 02 Dec 2024 11:00:20 GMT
+      Expires:
+      - '0'
+      Keep-Alive:
+      - timeout=60
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - XSRF-TOKEN=09b7760d-55de-4ad0-a3ff-2f16cbdb4f4a; Path=/
+      - JSESSIONID=EA0645EF688955015C4EAFE8A1AF9C9D; Path=/; HttpOnly
+      Vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 404
+      message: ''
+version: 1
