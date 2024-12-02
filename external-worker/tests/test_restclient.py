@@ -293,3 +293,34 @@ class TestRestClient(BasicTest):
 
         finally:
             self.remove_deployment()
+
+    # this test is a bit special since it requires a context path.
+    # without context path this test will also succeed with a trailing slash
+    def test_with_trailing_slash_for_url(self):
+        try:
+            client = restclient.FlowableExternalWorkerRestClient(
+                base_url + "/flowable-work/",
+                auth=auth,
+                worker_id='test-worker'
+            )
+            with self.assertRaises(restclient.FlowableRestException) as context:
+                client.list_jobs()
+
+            self.assertEqual("Failed to call Flowable with status code 404", context.exception.args[0])
+        finally:
+            self.remove_deployment()
+
+    # this test is a bit special since it requires a context path.
+    # without context path this test will also succeed with a trailing slash
+    def test_with_trailing_slash_for_url_with_200_as_result(self):
+        try:
+            client = restclient.FlowableExternalWorkerRestClient(
+                base_url + "/",
+                auth=auth,
+                worker_id='test-worker'
+            )
+
+            jobs = client.list_jobs()
+            self.assertEqual(0, jobs.total)
+        finally:
+            self.remove_deployment()

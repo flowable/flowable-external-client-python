@@ -29,6 +29,8 @@ class FlowableExternalWorkerRestClient(object):
             customize_session: Callable[[Session], None] = lambda session: None
     ) -> None:
         self.flowable_host: str = flowable_host
+        if self.flowable_host.endswith('/'):
+            self.flowable_host = flowable_host[:-1]
         self.worker_id: str = worker_id
         self.request_session: Session = requests.Session()
         if auth is not None:
