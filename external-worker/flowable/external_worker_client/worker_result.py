@@ -42,6 +42,7 @@ class WorkerResultSuccess(WorkResult, WorkResultWithVariables):
     def __init__(self, job: ExternalWorkerAcquireJobResponse):
         super().__init__()
         self._job_id = job.id
+        self._variables = job.variables
 
     def execute(self, rest_client: FlowableExternalWorkerRestClient):
         rest_client.complete_job(self._job_id, self._variables)
